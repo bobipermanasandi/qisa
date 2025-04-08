@@ -29,10 +29,10 @@ class StoryDetailProvider extends ChangeNotifier {
       if (result.story.toString().isNotEmpty) {
         _state = ResultState.hasData;
         _result = result;
-        _message = 'Detail Story Success !!!';
+        _message = 'Detail Story Success';
       } else {
         _state = ResultState.noData;
-        _message = 'Detail Story Failed !!!';
+        _message = 'Detail Story Failed';
       }
     } catch (e) {
       _state = ResultState.error;

@@ -22,7 +22,7 @@ class LoginProvider extends ChangeNotifier {
       notifyListeners();
 
       final result = await apiService.login(request: request);
-      if (result.error != true) {
+      if (!result.error) {
         _state = ResultState.hasData;
         pref.setToken(result.loginResult!.token);
         _message = result.message;

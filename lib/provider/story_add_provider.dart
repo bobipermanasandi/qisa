@@ -20,7 +20,7 @@ class StoryAddProvider extends ChangeNotifier {
       notifyListeners();
 
       final result = await apiService.addStory(request: request);
-      if (result.error != true) {
+      if (!result.error) {
         _state = ResultState.hasData;
         _message = 'Upload Story Success !!!';
       } else {

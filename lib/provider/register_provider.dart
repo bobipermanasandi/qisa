@@ -20,7 +20,7 @@ class RegisterProvider extends ChangeNotifier {
       notifyListeners();
 
       final result = await apiService.register(request: request);
-      if (result.error != true) {
+      if (!result.error) {
         _state = ResultState.hasData;
         _message = result.message;
       } else {

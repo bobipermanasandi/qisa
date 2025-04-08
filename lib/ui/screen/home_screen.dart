@@ -9,12 +9,12 @@ import 'package:qisa/utils/helper.dart';
 import 'package:qisa/utils/info_util.dart';
 
 class HomeScreen extends StatefulWidget {
-  final Function(String) onTapped;
+  final Function(String) onTappedItem;
   final Function() onAddStories;
   final Function() onLogout;
   const HomeScreen({
     super.key,
-    required this.onTapped,
+    required this.onTappedItem,
     required this.onAddStories,
     required this.onLogout,
   });
@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         final storyItem = provider.stories[index];
                         return CardItemWidget(
                           story: storyItem,
-                          onTapped: widget.onTapped,
+                          onTapped: widget.onTappedItem,
                         );
                       },
                     ),

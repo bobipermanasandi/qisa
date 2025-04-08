@@ -30,10 +30,10 @@ class StoryProvider extends ChangeNotifier {
       if (result.listStory.isNotEmpty) {
         _state = ResultState.hasData;
         _stories.addAll(result.listStory);
-        _message = 'Get All Story Success !!!';
+        _message = 'Get All Story Success';
       } else {
         _state = ResultState.noData;
-        _message = 'Get All Story Failed !!!';
+        _message = 'Get All Story Failed';
       }
     } catch (e) {
       _state = ResultState.error;

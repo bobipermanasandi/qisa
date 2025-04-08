@@ -75,7 +75,7 @@ class MyRouterDelegate extends RouterDelegate
     MaterialPage(
       key: const ValueKey("HomeScreen"),
       child: HomeScreen(
-        onTapped: (String storyId) {
+        onTappedItem: (String storyId) {
           selectedStory = storyId;
           notifyListeners();
         },
