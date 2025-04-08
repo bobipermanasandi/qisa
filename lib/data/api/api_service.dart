@@ -26,12 +26,12 @@ class ApiService {
 
   _isResponseSuccess(int statusCode) => (statusCode >= 200 && statusCode < 300);
 
-  Future<BaseResponse> register({required RequestRegisterModel request}) async {
+  Future<LoginModel> login({required RequestLoginModel request}) async {
     try {
       final response = await http
-          .post(_register, body: request.toJson())
+          .post(_login, body: request.toJson())
           .timeout(timeout);
-      var result = BaseResponse.fromJson(json.decode(response.body));
+      var result = LoginModel.fromJson(json.decode(response.body));
       if (_isResponseSuccess(response.statusCode)) {
         return result;
       } else {
@@ -46,12 +46,12 @@ class ApiService {
     }
   }
 
-  Future<LoginModel> login({required RequestLoginModel request}) async {
+  Future<BaseResponse> register({required RequestRegisterModel request}) async {
     try {
       final response = await http
-          .post(_login, body: request.toJson())
+          .post(_register, body: request.toJson())
           .timeout(timeout);
-      var result = LoginModel.fromJson(json.decode(response.body));
+      var result = BaseResponse.fromJson(json.decode(response.body));
       if (_isResponseSuccess(response.statusCode)) {
         return result;
       } else {
