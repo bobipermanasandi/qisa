@@ -1,5 +1,3 @@
-// import 'package:intl/intl.dart';
-
 extension StringExt on String {
   String capitalize() {
     return "${this[0].toUpperCase()}${substring(1)}";

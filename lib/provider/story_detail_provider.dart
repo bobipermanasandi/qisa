@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:qisa/common/enum/result_state.dart';
+import 'package:qisa/data/api/api_service.dart';
 import 'package:qisa/data/models/results/detail_story_model.dart';
-
-import '../data/api/api_service.dart';
-import '../common/enum/result_state.dart';
 
 class StoryDetailProvider extends ChangeNotifier {
   final ApiService apiService;
