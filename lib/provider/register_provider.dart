@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+import 'package:qisa/common/enum/result_state.dart';
+import 'package:qisa/data/api/api_service.dart';
+import 'package:qisa/data/models/request/request_register_model.dart';
+
+class RegisterProvider extends ChangeNotifier {
+  final ApiService apiService;
+
+  RegisterProvider({required this.apiService});
+
+  ResultState? _state;
+  ResultState? get state => _state;
+
+  String _message = '';
+  String get message => _message;
+
+  Future<dynamic> register(RequestRegisterModel request) async {
+    try {
+      _state = ResultState.loading;
+      notifyListeners();
+
+      final result = await apiService.register(request: request);
+      if (result.error != true) {
+        _state = ResultState.hasData;
+        _message = result.message;
+      } else {
+        _state = ResultState.noData;
+        _message = result.message;
+      }
+    } catch (e) {
+      _state = ResultState.error;
+      return _message = "$e";
+    } finally {
+      notifyListeners();
+    }
+  }
+}
